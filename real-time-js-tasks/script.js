@@ -1,0 +1,185 @@
+// ============================
+// Task 1 – Digital Clock
+// ============================
+
+setInterval(function () {
+    let now = new Date();
+
+    let h = now.getHours();
+    let m = now.getMinutes();
+    let s = now.getSeconds();
+
+    console.log("Clock:", h + ":" + m + ":" + s);
+
+}, 1000);
+
+
+// ============================
+// Task 2 – Age Calculator
+// ============================
+
+let birthYear = prompt("Enter your birth year");
+
+let currentYear = new Date().getFullYear();
+
+let age = currentYear - birthYear;
+
+console.log("Your age is", age);
+
+
+// ============================
+// Task 3 – Website Loading Simulation
+// ============================
+
+console.log("Website Loading...");
+
+setTimeout(function () {
+
+    console.log("Website Loaded Successfully");
+
+}, 3000);
+
+
+// ============================
+// Task 4 – Automatic Notification
+// ============================
+
+let reminder = setInterval(function () {
+
+    console.log("Take a short break");
+
+}, 5000);
+
+setTimeout(function () {
+
+    clearInterval(reminder);
+    console.log("Reminder stopped");
+
+}, 20000);
+
+
+// ============================
+// Task 5 – Online Order Status
+// ============================
+
+console.log("Order Placed");
+
+setTimeout(function () {
+
+    console.log("Order Preparing");
+
+}, 2000);
+
+setTimeout(function () {
+
+    console.log("Out for Delivery");
+
+}, 5000);
+
+setTimeout(function () {
+
+    console.log("Order Delivered");
+
+}, 8000);
+
+
+// ============================
+// Task 6 – API Data Viewer
+// ============================
+
+fetch("https://jsonplaceholder.typicode.com/todos/")
+.then(response => response.json())
+.then(data => {
+
+    console.log("All Todo Titles:");
+
+    data.forEach(todo => {
+
+        console.log(todo.title);
+
+    });
+
+});
+
+
+// ============================
+// Task 7 – Completed Task Filter
+// ============================
+
+fetch("https://jsonplaceholder.typicode.com/todos/")
+.then(response => response.json())
+.then(data => {
+
+    let completed = data.filter(todo => todo.completed === true);
+
+    console.log("Completed Tasks:");
+
+    completed.forEach(task => {
+
+        console.log(task.title);
+
+    });
+
+});
+
+
+// ============================
+// Task 8 – API Error Handling
+// ============================
+
+fetch("https://jsonplaceholder.typicode.com/todos/")
+.then(res => res.json())
+
+.then(data => {
+
+    console.log("Data received");
+
+})
+
+.catch(error => {
+
+    console.log("Server Error");
+
+})
+
+.finally(() => {
+
+    console.log("Process Completed");
+
+});
+
+
+// ============================
+// Task 9 – Meeting Countdown
+// ============================
+
+let time = 10;
+
+let countdown = setInterval(function () {
+
+    console.log("Countdown:", time);
+
+    time--;
+
+    if (time < 0) {
+
+        clearInterval(countdown);
+
+        console.log("Meeting Started");
+
+    }
+
+}, 1000);
+
+
+// ============================
+// Task 10 – Login Session Timeout
+// ============================
+
+console.log("User Logged In");
+
+setTimeout(function () {
+
+    console.log("Session Expired. Please Login Again");
+
+}, 10000);
